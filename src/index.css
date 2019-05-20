@@ -1,0 +1,29 @@
+body{
+  background-color: #333;
+}
+a:link {
+  color: #f50057;
+}
+
+/* visited link */
+a:visited {
+  color: #f50057;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link */
+a:active {
+  color: #f50057;
+}
+
+.textarea {
+  height: 120px;
+  font-family: monospace;
+  overflow: auto;
+  resize: both;
+  width: 100%;
+}

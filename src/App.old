@@ -1,0 +1,58 @@
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
+
+import List from './com/List'
+
+class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+    // Don't call this.setState() here!
+    this.state = { events: []};
+    this.loadDataFromApi = this.loadDataFromApi.bind(this);
+  }
+
+  componentDidMount() {
+    this.loadDataFromApi();
+  }
+
+  loadDataFromApi() {
+      const url = "http://demo5918996.mockable.io/";
+      //const url = 'https://www.caesars.com/api/v1/markets/lvm/events'
+      fetch(url)
+      .then(response => response.json())
+      .then(json=> {
+          console.log("parsed json", json);
+          this.setState({events: json})
+      })
+      .catch(ex=> {
+          console.log("parsing failed", ex);
+      });
+  }
+
+ render() { 
+  const { events } = this.state
+   return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+      <List data={events} />
+    </div>
+  );
+}
+}
+
+export default App;
