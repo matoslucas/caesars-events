@@ -72,7 +72,7 @@ class Home extends React.Component {
   }
 
   loadDataFromApi() {
-    const url = "http://demo5918996.mockable.io/";
+    const url = "https://demo5918996.mockable.io/";
     //const url = 'https://www.caesars.com/api/v1/markets/lvm/events'
     fetch(url)
       .then(response => response.json())
